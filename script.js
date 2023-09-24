@@ -102,7 +102,7 @@ console.log('-------');
 const brandon2 = {
   year: 1984,
   calcAge: function () {
-    // console.log(this);
+    console.log(this);
     console.log(2037 - this.year);
   },
 };
@@ -120,3 +120,59 @@ matilda.calcAge = brandon2.calcAge;
 
 // In this example Matilda is calling the method calcAge()
 matilda.calcAge();
+
+console.log('-------');
+console.log('-------');
+
+const brandon3 = {
+  firstName: 'Brandon',
+  year: 1984,
+  calcAge: function () {
+    console.log(this);
+    console.log(2037 - this.year);
+
+    // Solution 1
+    // const self = this;
+    // const isMillenial = function () {
+    //   console.log(self);
+    //   console.log(self.year >= 1984 && self.year <= 1996);
+    // };
+
+    // Solution 2
+    // the arrow function does not have a this keyword so it inherits its parents scope
+    const isMillenial = () => {
+      console.log(this);
+      console.log(this.year >= 1984 && this.year <= 1996);
+    };
+    // const isMillenial = function () {
+    //   console.log(this.year >= 1984 && this.year <= 1996);
+    // };
+    isMillenial();
+  },
+
+  greet: () => console.log(`Hey ${this.firstName}`),
+};
+
+brandon3.greet();
+
+console.log('-------');
+console.log('-------');
+brandon3.calcAge();
+
+console.log('-------');
+console.log('-------');
+// Arguments keyword
+const addExpr2 = function (a, b) {
+  console.log(arguments);
+  return a + b;
+};
+addExpr2(2, 5);
+addExpr2(2, 5, 8, 12);
+
+var addArrow2 = (a, b) => {
+  console.log(arguments);
+  return a + b;
+};
+addArrow2(2, 5, 8);
+
+// console.log(addExpr2);
