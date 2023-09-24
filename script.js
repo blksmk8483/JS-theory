@@ -79,3 +79,44 @@ const brandon = {
 };
 
 console.log(brandon.calcAge());
+
+console.log(this);
+
+const calcAge2 = function (birthYear) {
+  console.log(2037 - birthYear);
+  console.log(this);
+};
+
+calcAge2(1984);
+console.log('-------');
+
+const calcAgeArrow = birthYear => {
+  console.log(2037 - birthYear);
+  console.log(this);
+};
+
+calcAgeArrow(1984);
+
+console.log('-------');
+
+const brandon2 = {
+  year: 1984,
+  calcAge: function () {
+    // console.log(this);
+    console.log(2037 - this.year);
+  },
+};
+
+brandon2.calcAge();
+
+console.log('-------');
+
+const matilda = {
+  year: 2017,
+};
+
+matilda.calcAge = brandon2.calcAge;
+// The THIS keyword always points to the object that is calling the method
+
+// In this example Matilda is calling the method calcAge()
+matilda.calcAge();
