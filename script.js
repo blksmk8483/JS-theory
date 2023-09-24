@@ -67,3 +67,15 @@ function deleteShoppingCart() {
 var x = 1;
 let y = 2;
 const z = 3;
+
+// ------ THIS keyword ------
+// Method example
+const brandon = {
+  name: 'Brandon',
+  year: 1984,
+  calcAge: function () {
+    return 2037 - this.year;
+  },
+};
+
+console.log(brandon.calcAge());
