@@ -169,10 +169,30 @@ const addExpr2 = function (a, b) {
 addExpr2(2, 5);
 addExpr2(2, 5, 8, 12);
 
-var addArrow2 = (a, b) => {
-  console.log(arguments);
-  return a + b;
-};
-addArrow2(2, 5, 8);
+// var addArrow2 = (a, b) => {
+//   console.log(arguments);
+//   return a + b;
+// };
+// addArrow2(2, 5, 8);
 
 // console.log(addExpr2);
+console.log('-------');
+console.log('-------');
+
+let age = 39;
+let oldAge = age;
+age = 40;
+console.log(age);
+console.log(oldAge);
+
+const me2 = {
+  name: 'Brandon',
+  age: 39,
+};
+
+const friend = me2;
+
+friend.age = 27;
+
+console.log('Friend:', friend);
+console.log('Me:', me2);
