@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 
 // function calcAge(birthYear) {
 //   const age = 2037 - birthYear;
@@ -364,6 +364,11 @@ const restaurant2 = {
       `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}.`
     );
   },
+  orderPizza: function (ing1, ing2, ing3) {
+    console.log(
+      `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
+    );
+  },
 };
 
 restaurant2.orderDelivery({
@@ -406,3 +411,68 @@ const {
   fri: { open, close },
 } = openingHours;
 console.log(open, close);
+
+// --------------------------------------------------
+// --------------------------------------------------
+// --------------------------------------------------
+// --------------------------------------------------
+// --------------------------------------------------
+// --------------------------------------------------
+
+// ----------- The Spread Operator ----------------
+// * The spread operator does not change the original array
+const arr = [7, 8, 9];
+// don't do it this way, there is a better way 😀
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
+
+const newArr = [1, 2, ...arr];
+console.log(newArr);
+
+const newArr2 = [...arr, 1, 2];
+// gives me the array
+console.log(newArr2);
+// gives me the array written out
+console.log(...newArr2);
+
+// Adds another item to the mainMenu array
+const newMenu = [...restaurant2.mainMenu, 'Gnocci'];
+console.log(newMenu);
+
+// Copy array
+const mainMenuCopy = [...restaurant2.mainMenu];
+
+// Join 2 arrays
+const menu2 = [...restaurant2.starterMenu, ...restaurant2.mainMenu];
+console.log(...menu2);
+
+// Iterables: arrays, strings, maps, sets. NOT objects
+const str = 'Brandon';
+const str2 = 'Knight';
+const letters = [...str, ' ', 's.'];
+console.log(letters);
+console.log(...str, ' ', ...str2, ' 😀');
+
+const ingredients = [
+  // prompt("Let's make pasta! Ingredient 1?"),
+  // prompt('Ingredient 2?'),
+  // prompt('Ingredient 3'),
+];
+
+console.log(ingredients);
+
+restaurant2.orderPizza(...ingredients);
+
+// Objects
+const newRestaurant = {
+  foundedIn: 1998,
+  ...restaurant2,
+  founder: 'Guiseppe',
+};
+
+console.log(newRestaurant);
+
+const restaurantCopy = { ...restaurant2 };
+restaurantCopy.name = "Mama's House Cooking";
+console.log('Restaurant Name:', restaurantCopy.name);
+console.log('Restaurant Name:', restaurant2.name);
