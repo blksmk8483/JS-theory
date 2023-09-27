@@ -364,10 +364,15 @@ const restaurant2 = {
       `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}.`
     );
   },
-  orderPizza: function (ing1, ing2, ing3) {
+  orderPasta: function (ing1, ing2, ing3) {
     console.log(
       `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
     );
+  },
+
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
   },
 };
 
@@ -476,3 +481,36 @@ const restaurantCopy = { ...restaurant2 };
 restaurantCopy.name = "Mama's House Cooking";
 console.log('Restaurant Name:', restaurantCopy.name);
 console.log('Restaurant Name:', restaurant2.name);
+
+// SPREAD, because on RIGHT side of the = sign
+const arr3 = [1, 2, ...[3, 4]];
+
+// REST, because on the LEFT side of the = sign
+const [e, g, ...others] = [1, 2, 3, 4, 5];
+console.log(e, g, others);
+
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant2.mainMenu,
+  ...restaurant2.starterMenu,
+];
+
+console.log(pizza, risotto, ...otherFood);
+
+// Objects
+const { sat, ...weekdays } = restaurant2.openingHours;
+console.log(weekdays);
+
+// 2) Functions
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+  console.log(sum);
+};
+add(2, 3);
+add(5, 3, 7, 2);
+add(8, 2, 5, 3, 2, 1, 4);
+
+const x = [23, 5, 7];
+add(...x);
+
+restaurant2.orderPizza('mushrooms', 'onions', 'olives', 'spinach');
