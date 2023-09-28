@@ -376,6 +376,38 @@ const restaurant2 = {
   },
 };
 
+const rest1 = {
+  name: 'Capri',
+  // numGuests: 20,
+  numGuests: 0,
+};
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
+
+// OR assignment Operator
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+// nullish assignment operartor (null or undefiend)
+rest1.numGuests ??= 10; // This will return 0 since 0 is defined
+rest2.numGuests ??= 10; // This will return 10 because numGuests is undefiend
+
+//  AND assignment operator
+// rest1.owner = rest1.owner && '<ANONYMOUS>'; // value of undefined because rest1.owner is falsey
+// rest2.owner = rest2.owner && '<ANONYMOUS>'; // value of 10 because rest2.owner is true so it moves to the second value which is anonymous
+
+rest1.owner &&= '<ANONYMOUS>'; // value is 0
+rest2.owner &&= '<ANONYMOUS>'; // value is anonymous
+
+console.log(rest1);
+console.log(rest2);
+
+console.log('-------HERE I AM---------');
+
 restaurant2.orderDelivery({
   time: '2:30',
   address: 'Rosemont High',
