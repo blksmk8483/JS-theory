@@ -560,3 +560,20 @@ if (restaurant2.orderPizza) {
 }
 
 restaurant2.orderPizza && restaurant2.orderPizza('pineapple', 'spinach');
+
+console.log('========');
+console.log('-----   The Nullish Coalescing Operator   -----');
+console.log('========');
+
+restaurant2.numGuests = 0;
+const guest3 = restaurant2.numGuests || 10;
+console.log(guest3); // This returns 10 because restuarant2.numGuest = 0 and that is falsy and 10 is truthy
+
+// Nullish: null and undefined (NOT 0 or '')
+const guestCorrect = restaurant2.numGuests ?? 10;
+console.log(guestCorrect); // This returns 0 because 0 is defined as 0 and not null/undefined
+
+// In this example I do not have numGuest2 defined so it will return 12 because restaurant2.numGuests2 is undefined
+
+const guestCorrect2 = restaurant2.numGuests2 ?? 12;
+console.log(guestCorrect2);
