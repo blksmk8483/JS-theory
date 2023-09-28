@@ -514,3 +514,49 @@ const x = [23, 5, 7];
 add(...x);
 
 restaurant2.orderPizza('mushrooms', 'onions', 'olives', 'spinach');
+
+// --------------------------------------------------
+// --------------------------------------------------
+// --------------------------------------------------
+// --------------------------------------------------
+// --------------------------------------------------
+// --------------------------------------------------
+
+// ----------- Short Circuiting (&& and ||) ----------------
+
+// ----------------   OR   ----------------
+// Use ANY data type, return ANY data t ype, short-circuiting
+console.log(3 || 'Brandon'); // 3 is truthy
+console.log('' || 'Brandon'); // 'Brandon' is truthy
+console.log(true || 0); // true because true is true
+console.log(undefined || null); // null because undefined is falsy
+
+console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+// undefiend, 0, '' are all falsy, the first truthy value is a string in this example it is 'Hello'
+
+// Truthy and Falsey defined:
+// Basically, if the variable value is false, zero, empty, null, undefined, or Nan , it's falsy and the code within the if block is not run. If the variable value is anything else, such as a number that is not zero, a non-empty string, an array, or an object, it's truthy and the code in the if block is run.
+
+restaurant2.numGuests = 0;
+const guest1 = restaurant2.numGuests ? restaurant2.numGuests : 10;
+console.log(guest1);
+
+const guest2 = restaurant2.numGuests || 10;
+console.log(guest2);
+
+console.log('-----   And   -----');
+console.log(0 && 'Brandon');
+console.log(7 && 'Brandon');
+
+console.log('Hello' && 23 && null && 'Brandon'); // null
+
+// AND will return the first value that is falsey or the last truthy value
+// Everything has to be true so if the first value is false there is no point in moving forward so it displays that
+// If everything is true it will display the last true value, so there...
+
+// Practical Example...
+if (restaurant2.orderPizza) {
+  restaurant2.orderPizza('pineapple', 'spinach');
+}
+
+restaurant2.orderPizza && restaurant2.orderPizza('pineapple', 'spinach');
