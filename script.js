@@ -717,9 +717,9 @@ const restaurant2 = {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
-  order(starterIndex, mainIndex) {
-    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
-  },
+  // order(starterIndex, mainIndex) {
+  //   return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  // },
 
   // By adding the = 1, = 0, ='12:30' --- I'm giving it a default value if there is not one inputed
   orderDelivery({ starterIndex = 1, mainIndex = 0, time = '12:30', address }) {
@@ -754,3 +754,12 @@ for (const day of days) {
   const open = restaurant2.openingHours[day]?.open ?? 'closed';
   console.log(`On ${day}, we open at ${open}`);
 }
+// Methods
+console.log(restaurant2.order?.(2, 2) ?? 'Method does not exist');
+console.log(restaurant2.orderRisotto?.(2, 2) ?? 'Method does not exist');
+
+// Arrays
+const users = [{ name: 'Brandon', email: 'email@email.com' }];
+
+console.log(users[0]?.name ?? 'User array empty');
+console.log(users[1]?.name ?? 'User array empty');
