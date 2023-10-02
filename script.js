@@ -903,9 +903,29 @@ printGoals(...game.scored);
 // GOOD LUCK 😀
 
 // 1
-const scored = game.scored;
-for (const scores of scored) {
-  console.log(`Goal ${scores.length}: ${scores}`);
+// Using [].entries gives me the index of the array and the value
+for (const [index, player] of game.scored.entries()) {
+  console.log(`Goal ${index + 1}: ${player}`);
 }
 
 // 2
+
+// let numbers = [game.odds];
+// numbers.forEach(function (element, index, array) {
+//   console.log(element);
+// });
+
+// function average(array) {
+//   sum = 0;
+//   array.forEach(element => {
+//     sum += element;
+//   });
+//   return sum / array / length;
+// }
+
+// console.log(average([game.odds]));
+const odds = Object.values(game.odds);
+let average = 0;
+for (const odd of odds) average += odd;
+average /= odds.length;
+console.log(average);
