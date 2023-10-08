@@ -1106,3 +1106,60 @@ for (const [min, event] of gameEvents) {
   const half = min <= 45 ? 'FIRST' : 'SECOND';
   console.log(`[${half} HALF] ${min}: ${event}`);
 }
+
+// ------------------------
+// ------------------------
+// ------------------------
+// ------------------------
+// ------------------------
+console.log('============================');
+console.log('============================');
+console.log('============================');
+console.log('WORKING WITH STRINGS - PART 1');
+
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+console.log(plane[0]);
+console.log('B737'[0]);
+
+console.log(airline.length);
+console.log('B737'.length);
+
+console.log(airline.indexOf('r'));
+console.log(
+  `The first 'r' in the "TAP Air Portugal" variable is in the ${airline.indexOf(
+    'r'
+  )}th position.`
+);
+console.log(airline.lastIndexOf('r'));
+console.log(airline.indexOf('portugal')); // this yields -1 because indexOf is case sensitive
+
+// Method slice does not affect the original string
+console.log(airline.slice(4)); // returns Air Portugal
+console.log(airline.slice(4, 7)); // returns Air
+
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+console.log(airline.slice(-2)); // returns al
+console.log(airline.slice(1, -1)); // returns AP Air Portuga
+
+// So checkMiddleSeat runs a function and the blank variable, seat is set to seat.slice(-1) this is
+// going to take the last of the string and compare it to the if statement ex. checkMiddleSeat('11B');
+// B is true so it prionts You got the middle seat
+const checkMiddleSeat = function (seat) {
+  // B and E are middle seats
+
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') console.log('You got the middle seat 🙄');
+  else console.log('This is your lucky day partner! 🤠');
+};
+
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+console.log(new String('brandon'));
+console.log(typeof new String('brandon'));
+console.log(typeof new String('brandon').slice(1));
