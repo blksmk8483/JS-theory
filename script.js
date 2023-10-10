@@ -1147,7 +1147,7 @@ console.log(airline.slice(1, -1)); // returns AP Air Portuga
 
 // So checkMiddleSeat runs a function and the blank variable, seat is set to seat.slice(-1) this is
 // going to take the last of the string and compare it to the if statement ex. checkMiddleSeat('11B');
-// B is true so it prionts You got the middle seat
+// B is true so it prints "You got the middle seat"
 const checkMiddleSeat = function (seat) {
   // B and E are middle seats
 
@@ -1163,3 +1163,80 @@ checkMiddleSeat('3E');
 console.log(new String('brandon'));
 console.log(typeof new String('brandon'));
 console.log(typeof new String('brandon').slice(1));
+
+// ------------------------
+// ------------------------
+// ------------------------
+// ------------------------
+// ------------------------
+console.log('============================');
+console.log('============================');
+console.log('============================');
+console.log('WORKING WITH STRINGS - PART 2');
+
+console.log(airline.toLocaleLowerCase());
+console.log(airline.toUpperCase());
+
+// Fix capitalization in name
+const passenger = 'BRanDon';
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect =
+  passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
+
+const grammarFix = function (fix) {
+  const lowerFix = fix.toLocaleLowerCase();
+  const finalFix = lowerFix[0].toUpperCase() + lowerFix.slice(1);
+  console.log(finalFix);
+};
+
+grammarFix('BRAndOn');
+grammarFix(passenger);
+
+// Comparing emails
+const email = 'brandon@email.com';
+const loginEmail = '   Brandon@Email.COM \n';
+
+const lowerEmail = loginEmail.toLocaleLowerCase();
+const trimmedEmail = lowerEmail.trim();
+console.log(trimmedEmail);
+
+const normalizedEmail = loginEmail.toLocaleLowerCase().trim();
+console.log(normalizedEmail);
+console.log(
+  email === normalizedEmail ? 'This is true, 🎉' : 'This is false, 🙁'
+);
+
+// replacing
+const priceGB = '288,97£';
+const priceUS = priceGB.replace('£', '$').replace(',', '.');
+console.log(priceUS);
+
+const announcment =
+  'All passengers come to boarding door 23. Boarding door 23!';
+
+console.log(announcment.replaceAll('door', 'gate'));
+console.log(announcment.replace(/door/g, 'gate'));
+
+// Booleans
+const plane2 = 'Airbus A320neo';
+console.log(plane2.includes('A320'));
+console.log(plane2.includes('Boeing'));
+console.log(plane2.startsWith('Airb'));
+
+if (plane2.startsWith('Airbus') && plane2.endsWith('neo')) {
+  console.log('Part of the NEW Airbus family!');
+}
+
+// Practice exercises:
+const checkBaggage = function (items) {
+  const baggage = items.toLocaleLowerCase();
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('You are NOT allowed on board!');
+  } else {
+    console.log('Welcome aboard!');
+  }
+};
+checkBaggage('I have a laptop, some Food, and a pocket Knife.');
+checkBaggage('Socks and camera.');
+checkBaggage('Got some snacks and a gun for protection.');
