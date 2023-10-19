@@ -34,3 +34,46 @@ createBooking('LH444', 2);
 createBooking('LH444', 5);
 
 createBooking('LH444', undefined, showMeTheMoney(2));
+
+// ======================================================
+// ======================================================
+// ======================================================
+// ======================================================
+console.log('==========================================');
+console.log('==========================================');
+console.log('==========================================');
+console.log('HOW PASSING ARGUMENTS WORKS: VALUE vs. REFERENCE');
+
+const flight = 'LH234';
+const brandon = {
+  name: 'Brandon Knight',
+  passport: 123456789,
+};
+
+const checkIn = function (flightNum, passenger) {
+  flightNum = 'LH123';
+  passenger.name = 'Mr. ' + passenger.name;
+
+  if (passenger.passport === 123456789) {
+    alert('Checked in!');
+  } else {
+    alert('Wrong passport!');
+  }
+};
+
+// checkIn(flight, brandon);
+// console.log(flight); // LH234
+// console.log(brandon); // name: Mr. Brandon Knight, passport: 123456789
+
+// flight stays the same because...it is the same as this
+// const flightNum = flight
+
+// brandon changes because...it is the same as this
+// const passenger = brandon
+
+const newPassport = function (person) {
+  person.passport = Math.trunc(Math.random() * 1000000000);
+};
+
+newPassport(brandon);
+checkIn(flight, brandon);
