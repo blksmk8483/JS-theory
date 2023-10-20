@@ -112,3 +112,48 @@ const high5 = function () {
 document.body.addEventListener('click', high5);
 
 ['Brandon', 'Martha', 'Adam'].forEach(high5);
+
+// ======================================================
+// ======================================================
+// ======================================================
+// ======================================================
+console.log('==========================================');
+console.log('==========================================');
+console.log('==========================================');
+console.log('FUNCTIONS RETURNING FUNCTIONS');
+
+// #1 this is longhand but easier to read
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeterHey = greet('Hey');
+greeterHey('Brandon');
+greeterHey('Bob');
+
+greet('Hello')('Brandon');
+
+// #2 this is with arrow functions but still witht the return written out
+const greet2 = greeting => {
+  return name => {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+greet2('HI')('Brandon');
+
+// #3 this is with arrow function but completely dry, in my opinion this is harder to read but...maybe this would be a refactor
+const greet3 = greeting => name => console.log(`${greeting} ${name}`);
+
+greet3('How ya doing')('Brandon');
+
+// ======================================================
+// ======================================================
+// ======================================================
+// ======================================================
+console.log('==========================================');
+console.log('==========================================');
+console.log('==========================================');
+console.log('THE CALL AND APPLY METHOD');
