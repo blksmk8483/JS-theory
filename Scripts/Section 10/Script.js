@@ -54,11 +54,11 @@ const checkIn = function (flightNum, passenger) {
   flightNum = 'LH123';
   passenger.name = 'Mr. ' + passenger.name;
 
-  if (passenger.passport === 123456789) {
-    alert('Checked in!');
-  } else {
-    alert('Wrong passport!');
-  }
+  // if (passenger.passport === 123456789) {
+  //   alert('Checked in!');
+  // } else {
+  //   alert('Wrong passport!');
+  // }
 };
 
 // checkIn(flight, brandon);
@@ -77,3 +77,38 @@ const newPassport = function (person) {
 
 newPassport(brandon);
 checkIn(flight, brandon);
+
+// ======================================================
+// ======================================================
+// ======================================================
+// ======================================================
+console.log('==========================================');
+console.log('==========================================');
+console.log('==========================================');
+console.log('FUNCTIONS ACCEPTING CALLBACK FUNCTIONS');
+
+const oneWord = function (str) {
+  return str.replace(/ /g, '').toLowerCase();
+};
+
+const upperFirstWord = function (str) {
+  const [first, ...others] = str.split(' ');
+  return [first.toUpperCase(), ...others].join(' ');
+};
+
+const transformer = function (str, fn) {
+  console.log(`Original string: ${str}`);
+  console.log(`Transformed string: ${fn(str)}`);
+  console.log(`Transformed by: ${fn.name}`);
+};
+
+transformer('JavaScript is the best!', upperFirstWord);
+transformer('JavaScript is the best!', oneWord);
+
+const high5 = function () {
+  console.log('👋');
+};
+
+document.body.addEventListener('click', high5);
+
+['Brandon', 'Martha', 'Adam'].forEach(high5);
