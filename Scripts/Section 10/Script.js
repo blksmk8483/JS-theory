@@ -157,3 +157,56 @@ console.log('==========================================');
 console.log('==========================================');
 console.log('==========================================');
 console.log('THE CALL AND APPLY METHOD');
+
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+  },
+};
+
+lufthansa.book(239, 'Brandon Knight');
+lufthansa.book(447, 'Chuck Norris');
+console.log(lufthansa);
+
+const eurowings = {
+  airline: 'Eurowings',
+  iataCode: 'EW',
+  bookings: [],
+};
+
+const book = lufthansa.book;
+
+// book(23, 'Sarah Knight'); // Does not work
+
+// -----------
+// Call Method
+
+// the call method allows me to point to where I want the this keyword to pull from....I am setting the this keyword
+
+book.call(eurowings, 23, 'Sarah Williams');
+console.log(eurowings);
+
+book.call(lufthansa, 239, 'Mary Cooper');
+
+const swiss = {
+  airline: 'Swiss Air Lines',
+  iataCode: 'LX',
+  bookings: [],
+};
+
+book.call(swiss, 867, 'Wolverine');
+
+// -----------
+// Apply Method
+const flightData = [583, 'George Cooper'];
+book.apply(swiss, flightData);
+
+// easier method is to use the spread operator to spread out the information
+
+book.call(swiss, ...flightData);
