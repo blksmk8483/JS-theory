@@ -105,13 +105,13 @@ const transformer = function (str, fn) {
 transformer('JavaScript is the best!', upperFirstWord);
 transformer('JavaScript is the best!', oneWord);
 
-const high5 = function () {
-  console.log('👋');
-};
+// const high5 = function () {
+//   console.log('👋');
+// };
 
-document.body.addEventListener('click', high5);
+// document.body.addEventListener('click', high5);
 
-['Brandon', 'Martha', 'Adam'].forEach(high5);
+// ['Brandon', 'Martha', 'Adam'].forEach(high5);
 
 // ======================================================
 // ======================================================
@@ -210,3 +210,59 @@ book.apply(swiss, flightData);
 // easier method is to use the spread operator to spread out the information
 
 book.call(swiss, ...flightData);
+
+// ======================================================
+// ======================================================
+// ======================================================
+// ======================================================
+console.log('==========================================');
+console.log('==========================================');
+console.log('==========================================');
+console.log('THE BIND METHOD');
+
+// const book = lufthansa.book;
+// Just a reminder that I am calling this, that is where book comes from
+
+const bookEW = book.bind(eurowings);
+const bookLH = book.bind(lufthansa);
+const bookLX = book.bind(swiss);
+
+bookEW(23, 'Steven Williams');
+
+const bookEW23 = book.bind(eurowings, 234);
+bookEW23('Brandon Knight');
+bookEW23('Sarah Knight');
+
+// With event listeners
+lufthansa.planes = 300;
+lufthansa.buyPlane = function () {
+  console.log(this);
+
+  this.planes++;
+  console.log(this.planes);
+};
+lufthansa.buyPlane();
+
+document
+  .querySelector('.buy')
+  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+// Partial application
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23);
+
+console.log(addVAT(100));
+console.log(addVAT(23));
+
+// challenge same as (partial app) above 👆 but written a different way
+const addTaxRate = function (rate) {
+  return function (value) {
+    return value + value * rate;
+  };
+};
+
+const addVAT2 = addTaxRate(0.23);
+console.log(addVAT2(100));
+console.log(addVAT2(23));
