@@ -432,3 +432,32 @@ const boardPassengers = function (n, wait) {
 };
 
 boardPassengers(180, 3);
+
+// ======================================================
+// ======================================================
+// ======================================================
+// ======================================================
+console.log('==========================================');
+console.log('==========================================');
+console.log('==========================================');
+console.log('CHALLENGE #2');
+
+// (function () {
+//   const header = document.querySelector('h1');
+//   const red = (header.style.color = 'red');
+
+//   addEventListener('mousedown', function (event) {
+//     const body = document.querySelector('body');
+//     const changeNow = (header.style.color = 'blue');
+//     body.event === true ? changeNow : red;
+//   });
+// })();
+
+(function () {
+  const header = document.querySelector('h1');
+  header.style.color = 'red';
+
+  document.querySelector('body').addEventListener('click', function () {
+    header.style.color = 'blue';
+  });
+})();
